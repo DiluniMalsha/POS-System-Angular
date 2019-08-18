@@ -1,0 +1,54 @@
+<div class="col-md-9" id="main">
+  <h1>Item</h1>
+
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Item Code</label>
+        <input #txtCode type="text" class="form-control" id="inputEmail4" placeholder="Code">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Item Name</label>
+        <input #txtName type="text" class="form-control" id="inputPassword4" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Unit Price</label>
+        <input #txtPrice type="text" class="form-control" id="inputCity" placeholder="Price">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputCity">Quantity</label>
+        <input #txtqty type="number" class="form-control" id="inputtel" placeholder="+">
+      </div>
+    </div>
+    <button type="button" (click)="addItem(txtCode.value,txtName.value,txtPrice.value,txtqty.value)" class="btn btn-primary">Save Item</button>
+
+
+    <table class="table table-bordered" style="margin-top: 20px">
+      <thead>
+      <tr>
+        <th scope="col">CODE</th>
+        <th scope="col">Name</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Option</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.code}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.qty}}</td>
+        <td style="text-align: center;">
+          <button  class="btn btn-danger" (click)="removeItem(item)">Remove</button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </form>
+</div>
